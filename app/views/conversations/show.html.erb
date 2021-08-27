@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="md:flex md:items-center md:justify-between">
+  <div class="flex-1 min-w-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+        <strong>Subject:</strong>
+        <%= @conversation.subject %>
+      </h2>
+      <h3 class="text-xl leading-7 text-gray-700 sm:text-2xl sm:truncate">
+        <strong>Contact:</strong>
+        <%= link_to @conversation.contact.name, @conversation.contact %>
+      </h3>
+    </div>
+  </div>
+  <div class="mt-4 flex md:mt-0 md:ml-4">
+    <%= link_to 'Edit', edit_conversation_path(@conversation), class: "inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+  <div class="mr-10 mt-4 flex md:mt-0 md:ml-4">
+    <%= link_to 'Back', conversations_path, class: "inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto p-4 sm:p-6 md:p-8">
+  <%= turbo_stream_from @conversation %>
+  <div id="posts">
+    <% if @posts.size > 0 %>
+      <ul role="list" class="divide-y divide-gray-200">
+        <%= render @posts %>
+      </ul>
+    <% else %>
+      <button type="button" class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <h3 class="mt-2 text-sm font-medium text-gray-900">No posts</h3>
+        <p class="mt-1 text-sm text-gray-500">
+          Get started by creating a new post.
+        </p>
+      </button>
+    <% end %>
+  </div>
+</div>
