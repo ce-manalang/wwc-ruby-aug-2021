@@ -33,7 +33,7 @@
 
 **Step 2: Rails**
 
-*WIP*
+[![Install Ruby in Windows using WSL - 2](https://user-images.githubusercontent.com/353784/131214728-7aac6c5c-311d-4633-933d-0c54fbfdb994.png)](https://youtu.be/ZFpRiSyBFG0 "Install Ruby in Windows using WSL - 2")
 
 ## Ubuntu
 
